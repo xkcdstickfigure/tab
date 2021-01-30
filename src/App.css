@@ -1,3 +1,9 @@
+@import url("https://assets.alles.cx/fonts/inter/inter.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: Inter;
+}

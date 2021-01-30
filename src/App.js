@@ -1,5 +1,5 @@
 import "./App.css";
 
-const App = () => <div className="bg-black h-5 w-5"></div>;
+const App = () => <p>alles</p>;
 
 export default App;
