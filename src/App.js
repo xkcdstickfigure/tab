@@ -1,5 +1,5 @@
 import "./App.css";
 
-const App = () => <p>alles</p>;
+const App = () => <p className="text-primary">alles</p>;
 
 export default App;
