@@ -1,5 +1,7 @@
-import { Hero } from "./Hero";
 import "./App.css";
+
+import { Hero } from "./Hero";
+import { Card } from "./Card";
 
 export const App = () => (
   <div className="space-y-10">
@@ -15,14 +17,5 @@ export const App = () => (
       <Card></Card>
       <Card></Card>
     </div>
-  </div>
-);
-
-const Card = ({ children, width = 1, height = 1 }) => (
-  <div
-    className={`bg-white rounded-md shadow-md p-2 col-span-${width} row-span-${height}`}
-    style={{ height: `${height * 8 + (height - 1) * 0.75}rem` }}
-  >
-    {children}
   </div>
 );
