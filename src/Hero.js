@@ -14,7 +14,7 @@ export const Hero = ({ image, userId }) => (
             target="_blank"
             rel="noreferrer"
             href="https://account.alles.cx"
-            className="absolute top-0 -right-14 w-10 h-10 rounded-full overflow-hidden shadow-lg"
+            className="absolute top-0 -right-14 w-10 h-10 rounded-full overflow-hidden shadow-lg hidden sm:block"
           >
             <img src={`https://avatar.alles.cx/${userId}?size=40`} alt="" />
           </a>
