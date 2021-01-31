@@ -1,3 +1,5 @@
+import { ArrowRight } from "react-feather";
+
 export const Search = () => {
   return (
     <form
@@ -15,21 +17,7 @@ export const Search = () => {
         className="flex-shrink-0 bg-white text-gray-600 p-2 hover:bg-primary hover:text-white focus:bg-primary focus:text-white"
         type="submit"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="feather feather-search"
-        >
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
+        <ArrowRight size={24} strokeWidth={3} />
       </button>
     </form>
   );
