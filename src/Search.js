@@ -12,6 +12,7 @@ export const Search = () => {
         name="q"
         placeholder="Search the web..."
         autoComplete="off"
+        autoFocus="on"
       />
       <button
         className="flex-shrink-0 bg-white text-gray-600 p-2 hover:bg-primary hover:text-white focus:bg-primary focus:text-white"
