@@ -3,7 +3,7 @@ import url from "url";
 
 export const Hero = ({ image, userId }) => (
   <div
-    className="w-full shadow-xl bg-cover bg-center py-32 px-5"
+    className="w-full shadow-xl bg-cover bg-center pt-32 pb-16 px-5"
     style={{ backgroundImage: `url("${image}")` }}
   >
     <div className="mx-auto max-w-lg space-y-5">
