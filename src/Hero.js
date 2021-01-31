@@ -49,7 +49,7 @@ export const Hero = ({ image, userId }) => (
           },
         ].map((site, i) => (
           <a href={site.url} className="space-y-1 cursor-default" key={i}>
-            <div className="mx-auto bg-white w-12 h-12 shadow-lg rounded-md shadow-lg flex flex-col justify-center cursor-pointer">
+            <div className="mx-auto bg-white w-12 h-12 rounded-md shadow-lg flex flex-col justify-center cursor-pointer">
               <img
                 className="w-10 h-10 mx-auto"
                 src={`https://site-icons.alles.cx/${
