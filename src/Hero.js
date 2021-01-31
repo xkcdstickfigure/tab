@@ -1,5 +1,6 @@
 import { Search } from "./Search";
 import url from "url";
+import { useState } from "react";
 
 export const Hero = ({ image, userId }) => (
   <div
@@ -21,8 +22,8 @@ export const Hero = ({ image, userId }) => (
         )}
       </div>
 
-      <div className="grid grid-cols-6">
-        {[
+      <TopSites
+        sites={[
           {
             name: "Twitter",
             url: "https://twitter.com",
@@ -47,21 +48,41 @@ export const Hero = ({ image, userId }) => (
             name: "GitHub",
             url: "https://github.com",
           },
-        ].map((site, i) => (
-          <a href={site.url} className="space-y-1 cursor-default" key={i}>
-            <div className="mx-auto bg-white w-12 h-12 rounded-md shadow-lg flex flex-col justify-center cursor-pointer">
-              <img
-                className="w-10 h-10 mx-auto"
-                src={`https://site-icons.alles.cx/${
-                  url.parse(site.url).hostname
-                }`}
-                alt=""
-              />
-            </div>
-            <p className="text-white text-xs text-center">{site.name}</p>
-          </a>
-        ))}
-      </div>
+        ]}
+      />
     </div>
   </div>
 );
+
+const TopSites = ({ sites }) => {
+  const [hover, setHover] = useState(false);
+
+  return (
+    <div
+      className="grid grid-cols-6"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      {sites.map((site, i) => (
+        <a
+          href={site.url}
+          className={`space-y-1 duration-100 ${
+            hover ? `opacity-75` : `opacity-100`
+          } hover:opacity-100`}
+          key={i}
+        >
+          <div className="mx-auto bg-white w-12 h-12 rounded-md shadow-lg flex flex-col justify-center">
+            <img
+              className="w-10 h-10 mx-auto"
+              src={`https://site-icons.alles.cx/${
+                url.parse(site.url).hostname
+              }`}
+              alt=""
+            />
+          </div>
+          <p className="text-white text-xs text-center">{site.name}</p>
+        </a>
+      ))}
+    </div>
+  );
+};
