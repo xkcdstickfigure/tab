@@ -5,7 +5,7 @@ export const Hero = ({ image }) => (
     className="w-full shadow-xl bg-cover bg-center py-32 px-5"
     style={{ backgroundImage: `url("${image}")` }}
   >
-    <div className="mx-auto max-w-xl">
+    <div className="mx-auto max-w-lg">
       <Search />
     </div>
   </div>
