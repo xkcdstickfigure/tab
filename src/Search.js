@@ -18,7 +18,7 @@ export const Search = () => {
       onSubmit={submit}
     >
       <input
-        className="bg-white py-2 px-5 flex-grow min-w-0"
+        className="bg-white py-2 px-5 flex-grow min-w-0 outline-none"
         name="q"
         placeholder="Search the web..."
         autoComplete="off"
