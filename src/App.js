@@ -5,6 +5,7 @@ import "./App.css";
 
 import { Hero } from "./Hero";
 import { Card } from "./Card";
+import { WeatherCard } from "./Card/Weather";
 
 export const App = () => {
   const [data, setData] = useState(null);
@@ -34,9 +35,11 @@ export const App = () => {
           <Card width={3} height={2}></Card>
           <Card width={2}></Card>
           <Card width={2} height={2}></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
+          <Card width={2}></Card>
+          <WeatherCard
+            symbol={data.weather.symbol}
+            temperature={data.weather.temperature}
+          />
         </div>
       </div>
     )
