@@ -11,12 +11,16 @@ export const NewsCard = ({ items, ...props }) => {
         <h2 className="uppercase text-sm text-gray-600 font-semibold">
           {item.topic}
         </h2>
-        <h1 className="text-4xl font-bold">{item.title}</h1>
+        <h1 className="text-3xl font-bold">{item.title}</h1>
       </div>
       <div className="flex space-x-2">
         {item.sites.map((site) => (
           <a href={site.url} title={site.name}>
-            <img src={site.icon} alt={site.name} className="w-8 h-8" />
+            <img
+              src={site.icon}
+              alt={site.name}
+              className="w-8 h-8 rounded-sm"
+            />
           </a>
         ))}
       </div>
