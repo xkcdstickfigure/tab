@@ -13,7 +13,7 @@ export const NewsCard = ({ items, ...props }) => {
 
   return (
     <Card
-      className="flex"
+      className="flex relative"
       onMouseEnter={() => setArrows(true)}
       onMouseLeave={() => setArrows(false)}
       {...props}
@@ -26,7 +26,7 @@ export const NewsCard = ({ items, ...props }) => {
       >
         <ChevronLeft className="mx-auto text-gray-600" size={30} />
       </div>
-      <div className="px-2 py-8 flex-grow space-y-5">
+      <div className="px-2 py-8 flex-grow space-y-5 overflow-hidden">
         <div className="space-y-2">
           <h2 className="uppercase text-sm text-gray-600 font-semibold">
             {item.topic}
@@ -52,6 +52,17 @@ export const NewsCard = ({ items, ...props }) => {
         onClick={next}
       >
         <ChevronRight className="mx-auto text-gray-600" size={30} />
+      </div>
+      <div className="absolute bottom-5 w-full flex justify-center">
+        {items.map((_, j) => (
+          <div
+            key={j}
+            onClick={() => setI(j)}
+            className={`w-2 h-2 mx-1 rounded-full ${
+              i === j ? `bg-gray-400` : `bg-gray-200`
+            }`}
+          ></div>
+        ))}
       </div>
     </Card>
   );
