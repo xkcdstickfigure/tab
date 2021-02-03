@@ -22,7 +22,7 @@ export const NewsCard = ({ items, ...props }) => {
         className={`w-8 flex-shrink-0 flex flex-col justify-center duration-100 ${
           showArrows ? `opacity-100` : `opacity-0`
         }`}
-        onClick={next}
+        onClick={prev}
       >
         <ChevronLeft className="mx-auto text-gray-600" size={30} />
       </div>
@@ -49,7 +49,7 @@ export const NewsCard = ({ items, ...props }) => {
         className={`w-8 flex-shrink-0 flex flex-col justify-center duration-100 ${
           showArrows ? `opacity-100` : `opacity-0`
         }`}
-        onClick={prev}
+        onClick={next}
       >
         <ChevronRight className="mx-auto text-gray-600" size={30} />
       </div>
