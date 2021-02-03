@@ -14,14 +14,16 @@ export const MusicCard = ({ item, ...props }) => {
 
   useEffect(() => {
     const i = setInterval(() => {
-      const p = progress + 1;
-      if (p >= item.length) {
-        setProgress(item.length);
-        setPlaying(false);
-      } else setProgress(p);
+      if (playing) {
+        const p = progress + 1;
+        if (p >= item.length) {
+          setProgress(item.length);
+          setPlaying(false);
+        } else setProgress(p);
+      }
     }, 1000);
     return () => clearInterval(i);
-  }, [progress, item.length]);
+  }, [progress, playing, item.length]);
 
   return (
     <Card className="flex flex-col justify-center space-y-4" {...props}>
