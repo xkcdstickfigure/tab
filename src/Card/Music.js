@@ -1,11 +1,16 @@
 import { Card } from ".";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Play, Pause, SkipForward, SkipBack } from "react-feather";
 
 export const MusicCard = ({ item, ...props }) => {
   const [playing, setPlaying] = useState(item.playing);
   const [progress, setProgress] = useState(item.progress);
   const PlayIcon = playing ? Pause : Play;
+
+  useEffect(() => {
+    const i = setInterval(() => setProgress(progress + 1), 1000);
+    return () => clearInterval(i);
+  }, [progress]);
 
   return (
     <Card className="flex flex-col justify-center space-y-4" {...props}>
