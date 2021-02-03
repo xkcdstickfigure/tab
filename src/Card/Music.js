@@ -8,6 +8,11 @@ export const MusicCard = ({ item, ...props }) => {
   const PlayIcon = playing ? Pause : Play;
 
   useEffect(() => {
+    setPlaying(item.playing);
+    setProgress(item.progress);
+  }, [item]);
+
+  useEffect(() => {
     const i = setInterval(() => setProgress(progress + 1), 1000);
     return () => clearInterval(i);
   }, [progress]);
