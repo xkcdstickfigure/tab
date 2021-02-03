@@ -7,6 +7,7 @@ import { Hero } from "./Hero";
 import { Card } from "./Card";
 import { WeatherCard } from "./Card/Weather";
 import { NewsCard } from "./Card/News";
+import { ProfileCard } from "./Card/Profile";
 
 export const App = () => {
   const [data, setData] = useState(null);
@@ -34,7 +35,11 @@ export const App = () => {
         <Hero userId={data.user.id} image={data.background} />
         <div className="mx-auto max-w-3xl grid gap-3 grid-cols-5">
           <NewsCard width={3} height={2} items={data.news} />
-          <Card width={2}></Card>
+          <ProfileCard
+            width={2}
+            nickname={data.user.nickname}
+            email={data.user.email}
+          />
           <Card width={2} height={2}></Card>
           <Card width={2}></Card>
           <WeatherCard
