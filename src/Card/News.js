@@ -26,7 +26,7 @@ export const NewsCard = ({ items, ...props }) => {
       >
         <ChevronLeft className="mx-auto text-gray-600" size={30} />
       </div>
-      <div className="px-4 py-8 flex-grow space-y-5">
+      <div className="px-2 py-8 flex-grow space-y-5">
         <div className="space-y-2">
           <h2 className="uppercase text-sm text-gray-600 font-semibold">
             {item.topic}
