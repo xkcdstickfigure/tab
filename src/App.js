@@ -8,7 +8,6 @@ import { Card } from "./Card";
 import { WeatherCard } from "./Card/Weather";
 import { NewsCard } from "./Card/News";
 import { ProfileCard } from "./Card/Profile";
-import { MusicCard } from "./Card/Music";
 
 export const App = () => {
   const [data, setData] = useState(null);
@@ -42,15 +41,7 @@ export const App = () => {
             email={data.user.email}
           />
           <Card width={2} height={2}></Card>
-          {data.music.connected ? (
-            data.music.current ? (
-              <MusicCard width={2} item={data.music.current} />
-            ) : (
-              <Card width={2}>No Current Item</Card>
-            )
-          ) : (
-            <Card width={2}>Not Connected</Card>
-          )}
+          <Card width={2}></Card>
           <WeatherCard
             symbol={data.weather.symbol}
             temperature={data.weather.temperature}
