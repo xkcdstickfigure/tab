@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export const WeatherCard = ({ symbol, temperature, location, ...props }) => {
   const [hover, setHover] = useState(false);
-  const h = new Date().getTime();
+  const h = new Date().getHours();
   const night = h > 18 || h < 7;
 
   return (
