@@ -45,6 +45,7 @@ export const App = () => {
           <WeatherCard
             symbol={data.weather.symbol}
             temperature={data.weather.temperature}
+            location={data.location}
           />
         </div>
       </div>
