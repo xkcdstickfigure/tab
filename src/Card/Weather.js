@@ -35,13 +35,15 @@ export const WeatherCard = ({ symbol, temperature, location, ...props }) => {
         </span>
         <span>°C</span>
       </h1>
-      <p
-        className={`text-xs duration-200 ${
-          hover ? "h-1 mt-2" : "opacity-0 h-0 mt-0"
-        }`}
-      >
-        {location}
-      </p>
+      {location && (
+        <p
+          className={`text-xs duration-200 ${
+            hover ? "h-1 mt-2" : "opacity-0 h-0 mt-0"
+          }`}
+        >
+          {location}
+        </p>
+      )}
     </Card>
   );
 };
