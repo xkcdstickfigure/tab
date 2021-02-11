@@ -19,7 +19,9 @@ export const WeatherCard = ({ symbol, temperature, location, ...props }) => {
       {...props}
     >
       <img
-        className={`w-14 mx-auto duration-200 ${hover ? "h-0" : "h-14"}`}
+        className={`w-14 mx-auto duration-200 ${
+          hover ? "h-0 opacity-0" : "h-14 opacity-100"
+        }`}
         src={`https://assets.alles.cx/weather-icons/${symbol}.svg`}
         alt=""
       />
