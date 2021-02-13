@@ -44,10 +44,10 @@ export const NewsCard = ({ items, ...props }) => {
             </div>
             <div className="flex space-x-2">
               {item.sites.map((site, s) => (
-                <a key={s} href={site.url} title={site.name}>
+                <a key={s} href={site.url}>
                   <img
                     src={site.icon}
-                    alt={site.name}
+                    alt={site.site}
                     className="w-8 h-8 rounded-sm"
                   />
                 </a>
