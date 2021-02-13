@@ -18,8 +18,11 @@ export const App = () => {
       setData({
         api,
         token,
-        ...(await axios.get(`${api}/hp`, { headers: { Authorization: token } }))
-          .data,
+        ...(
+          await axios.get(`${api}/hp?v=1`, {
+            headers: { Authorization: token },
+          })
+        ).data,
       });
     } catch (err) {}
   };
