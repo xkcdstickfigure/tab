@@ -34,7 +34,13 @@ export const App = () => {
       <div className="space-y-10">
         <Hero userId={data.user.id} image={data.background} />
         <div className="mx-auto max-w-3xl grid gap-3 grid-cols-5">
-          <NewsCard width={3} height={2} items={data.news} />
+          {data.news ? (
+            <NewsCard width={3} height={2} items={data.news} />
+          ) : (
+            <Card width={3} height={2}>
+              No news articles
+            </Card>
+          )}
           <ProfileCard
             width={2}
             nickname={data.user.nickname}
