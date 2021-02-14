@@ -57,9 +57,7 @@ export const App = () => {
                   Want to chat with the Alles community?
                 </p>
                 <p className="text-primary uppercase font-semibold text-sm">
-                  <a href="https://discord.alles.cx">
-                    Join our discord server
-                  </a>
+                  <a href="https://discord.alles.cx">Join our discord server</a>
                 </p>
               </div>
             </Card>
