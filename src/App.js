@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { get as getCookie } from "es-cookie";
-import { MessageSquare } from "react-feather";
 import "./App.css";
 
 import { Hero } from "./Hero";
+import { MessageSquare } from "react-feather";
+
 import { Card } from "./Card";
 import { WeatherCard } from "./Card/Weather";
 import { NewsCard } from "./Card/News";
 import { ProfileCard } from "./Card/Profile";
+import { PeopleCard } from "./Card/People";
 
 export const App = () => {
   const [data, setData] = useState(null);
@@ -67,7 +69,7 @@ export const App = () => {
             nickname={data.user.nickname}
             email={data.user.email}
           />
-          <Card width={2} height={2}></Card>
+          <PeopleCard width={2} height={2} people={data.people} />
           <Card width={2}></Card>
           <WeatherCard
             symbol={data.weather.symbol}
