@@ -8,9 +8,9 @@ export const PeopleCard = ({ people, ...props }) => (
         <div key={user.id} className="flex space-x-3">
           <div className="flex-shrink-0">
             <img
-              src={`https://avatar.alles.cx/${user.id}?size=40`}
+              src={`https://avatar.alles.cx/${user.id}?size=32`}
               alt=""
-              className="h-10 w-10 shadow-md rounded-full"
+              className="h-8 w-8 shadow-md rounded-full"
             />
           </div>
           <div className="my-auto -space-y-1">
