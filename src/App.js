@@ -40,7 +40,7 @@ export const App = () => {
       <div className="space-y-10">
         <Hero userId={data.user.id} image={data.background} />
         <div className="mx-auto max-w-3xl grid gap-3 grid-cols-5">
-          {data.news ? (
+          {data.news.length > 0 ? (
             <NewsCard width={3} height={2} items={data.news} />
           ) : (
             <Card
