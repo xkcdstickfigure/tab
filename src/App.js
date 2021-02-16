@@ -37,7 +37,12 @@ export const App = () => {
   }, []);
 
   return (
-    data && (
+    data &&
+    (data.unsupported ? (
+      <p className="p-5 text-center">
+        This version of Alles Tab is no longer supported.
+      </p>
+    ) : (
       <div className="space-y-10">
         <Hero
           userId={data.user.id}
@@ -103,6 +108,6 @@ export const App = () => {
           })}
         </div>
       </div>
-    )
+    ))
   );
 };
