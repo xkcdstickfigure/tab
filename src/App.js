@@ -11,6 +11,7 @@ import { WeatherCard } from "./Card/Weather";
 import { NewsCard } from "./Card/News";
 import { ProfileCard } from "./Card/Profile";
 import { PeopleCard } from "./Card/People";
+import { StatusCard } from "./Card/Status";
 
 export const App = () => {
   const [data, setData] = useState(null);
@@ -70,7 +71,12 @@ export const App = () => {
             email={data.user.email}
           />
           <PeopleCard width={2} height={2} people={data.people} />
-          <Card width={2}></Card>
+          <StatusCard
+            api={data.api}
+            token={data.token}
+            status={data.status}
+            width={2}
+          />
           <WeatherCard
             symbol={data.weather.symbol}
             temperature={data.weather.temperature}
