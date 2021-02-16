@@ -39,7 +39,11 @@ export const App = () => {
   return (
     data && (
       <div className="space-y-10">
-        <Hero userId={data.user.id} image={data.background} />
+        <Hero
+          userId={data.user.id}
+          image={data.background}
+          sites={data.sites}
+        />
         <div className="mx-auto max-w-3xl grid gap-3 grid-cols-5">
           {data.news.length > 0 ? (
             <NewsCard width={3} height={2} items={data.news} />

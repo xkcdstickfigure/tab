@@ -2,7 +2,7 @@ import { Search } from "./Search";
 import url from "url";
 import { useState } from "react";
 
-export const Hero = ({ image, userId }) => (
+export const Hero = ({ image, userId, sites }) => (
   <div
     className="w-full shadow-xl bg-cover bg-center pt-32 pb-16 px-5"
     style={{ backgroundImage: `url("${image}")` }}
@@ -22,34 +22,7 @@ export const Hero = ({ image, userId }) => (
         )}
       </div>
 
-      <TopSites
-        sites={[
-          {
-            name: "Twitter",
-            url: "https://twitter.com",
-          },
-          {
-            name: "YouTube",
-            url: "https://youtube.com",
-          },
-          {
-            name: "Reddit",
-            url: "https://reddit.com",
-          },
-          {
-            name: "Spotify",
-            url: "https://spotify.com",
-          },
-          {
-            name: "Netflix",
-            url: "https://netflix.com",
-          },
-          {
-            name: "GitHub",
-            url: "https://github.com",
-          },
-        ]}
-      />
+      <TopSites sites={window.AllesTab?.sites || sites} />
     </div>
   </div>
 );
