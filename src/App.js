@@ -86,6 +86,21 @@ export const App = () => {
             temperature={data.weather.temperature}
             location={data.location}
           />
+          {data.cards.map((card, i) => {
+            const content = card.image && (
+              <img src={card.image} alt="" className="w-full h-full" />
+            );
+            return (
+              <Card
+                key={i}
+                width={card.width}
+                height={card.height}
+                className="select-none"
+              >
+                {card.url ? <a href={card.url}>{content}</a> : content}
+              </Card>
+            );
+          })}
         </div>
       </div>
     )
