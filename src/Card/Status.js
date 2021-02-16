@@ -10,6 +10,7 @@ export const StatusCard = ({ api, token, status, ...props }) => {
         <input
           defaultValue={status}
           placeholder="Being awesome!"
+          maxLength={100}
           className="w-full p-2 outline-none duration-100 border-b-2 focus:border-primary"
         />
       </form>
