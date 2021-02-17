@@ -17,8 +17,15 @@ export const App = () => {
   const [data, setData] = useState(null);
   const fetchData = async () => {
     try {
-      const api = getCookie("protium-api") || "https://protium.alles.cx/c";
-      const token = getCookie("protium-token");
+      const browserStorage =
+        typeof browser !== "undefined"
+          ? await window.browser.storage.local.get(["api", "token"])
+          : {};
+      const api =
+        getCookie("protium-api") ||
+        browserStorage.api ||
+        "https://protium.alles.cx/c";
+      const token = getCookie("protium-token") || browserStorage.token;
       setData({
         api,
         token,
