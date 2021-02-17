@@ -22,7 +22,7 @@ export const Hero = ({ image, userId, sites }) => (
         )}
       </div>
 
-      <TopSites sites={window.AllesTab?.sites || sites} />
+      <TopSites sites={sites} />
     </div>
   </div>
 );
