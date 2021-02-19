@@ -24,7 +24,7 @@ export const App = () => {
       const api =
         getCookie("protium-api") ||
         browserStorage.api ||
-        "https://protium.alles.cx/c";
+        "https://tab.alles.cx/c";
       const token = getCookie("protium-token") || browserStorage.token;
       setData({
         api,
