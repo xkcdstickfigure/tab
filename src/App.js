@@ -35,7 +35,10 @@ export const App = () => {
           })
         ).data,
       });
-    } catch (err) {}
+    } catch (err) {
+      if (err?.response?.data === "Bad Authorization")
+        window.location.href = "https://tab.alles.cx/connect";
+    }
   };
   useEffect(() => {
     fetchData();
