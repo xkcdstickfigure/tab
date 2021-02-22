@@ -4,6 +4,7 @@ import { get as getCookie } from "es-cookie";
 import "./App.css";
 
 import { Hero } from "./Hero";
+import { Footer } from "./Footer";
 import { MessageSquare } from "react-feather";
 
 import { Card } from "./Card";
@@ -14,6 +15,9 @@ import { PeopleCard } from "./Card/People";
 import { StatusCard } from "./Card/Status";
 
 export const App = () => {
+  const hp = 1;
+  const ext = window.browser?.runtime.getManifest().version || "0";
+
   const [data, setData] = useState(null);
   const fetchData = async () => {
     try {
@@ -30,7 +34,7 @@ export const App = () => {
         api,
         token,
         ...(
-          await axios.get(`${api}/hp?v=1`, {
+          await axios.get(`${api}/hp?hp=${hp}&ext=${ext}`, {
             headers: { Authorization: token },
           })
         ).data,
@@ -59,6 +63,7 @@ export const App = () => {
           image={data.background}
           sites={data.sites}
         />
+
         <div className="mx-auto max-w-3xl grid gap-3 grid-cols-5">
           {data.news.length > 0 ? (
             <NewsCard width={3} height={2} items={data.news} />
@@ -117,6 +122,8 @@ export const App = () => {
             );
           })}
         </div>
+
+        <Footer hp={hp} ext={ext} />
       </div>
     ))
   );
