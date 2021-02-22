@@ -19,36 +19,37 @@ export const App = () => {
   const ext = window.browser?.runtime.getManifest().version || "0";
 
   const [data, setData] = useState(null);
-  const fetchData = async () => {
-    try {
-      const browserStorage =
-        typeof browser !== "undefined"
-          ? await window.browser.storage.local.get(["api", "token"])
-          : {};
-      const api =
-        getCookie("protium-api") ||
-        browserStorage.api ||
-        "https://tab.alles.cx/c";
-      const token = getCookie("protium-token") || browserStorage.token;
-      setData({
-        api,
-        token,
-        ...(
-          await axios.get(`${api}/hp?hp=${hp}&ext=${ext}`, {
-            headers: { Authorization: token },
-          })
-        ).data,
-      });
-    } catch (err) {
-      if (err?.response?.data === "Bad Authorization")
-        window.location.href = "https://tab.alles.cx/connect";
-    }
-  };
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const browserStorage =
+          typeof browser !== "undefined"
+            ? await window.browser.storage.local.get(["api", "token"])
+            : {};
+        const api =
+          getCookie("protium-api") ||
+          browserStorage.api ||
+          "https://tab.alles.cx/c";
+        const token = getCookie("protium-token") || browserStorage.token;
+        setData({
+          api,
+          token,
+          ...(
+            await axios.get(`${api}/hp?hp=${hp}&ext=${ext}`, {
+              headers: { Authorization: token },
+            })
+          ).data,
+        });
+      } catch (err) {
+        if (err?.response?.data === "Bad Authorization")
+          window.location.href = "https://tab.alles.cx/connect";
+      }
+    };
+
     fetchData();
     const i = setInterval(fetchData, 2500);
     return () => clearInterval(i);
-  }, []);
+  }, [ext]);
 
   return (
     data &&
