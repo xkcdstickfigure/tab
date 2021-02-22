@@ -8,7 +8,7 @@ export const PeopleCard = ({ people, ...props }) => (
         <div key={user.id} className="flex space-x-3">
           <div className="flex-shrink-0">
             <img
-              src={`https://avatar.alles.cx/${user.id}?size=32`}
+              src={`https://avatar.alles.cx/${user.id}?size=64`}
               alt=""
               className="h-8 w-8 shadow-md rounded-full"
             />

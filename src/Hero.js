@@ -17,7 +17,7 @@ export const Hero = ({ image, userId, sites }) => (
             href="https://account.alles.cx"
             className="absolute top-0 -right-14 w-10 h-10 rounded-full overflow-hidden shadow-lg hidden sm:block"
           >
-            <img src={`https://avatar.alles.cx/${userId}?size=40`} alt="" />
+            <img src={`https://avatar.alles.cx/${userId}?size=80`} alt="" />
           </a>
         )}
       </div>
