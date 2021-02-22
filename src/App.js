@@ -100,32 +100,7 @@ export const App = () => {
           <ToDoCard
             width={2}
             height={2}
-            items={[
-              {
-                id: "aa48c9d8-2f26-465c-a549-0b6be3c48c4e",
-                content: "Redesign Alles Search",
-                completed: null,
-                date: 1614014146359,
-              },
-              {
-                id: "0cd58432-6d2e-424d-858c-c550f3ab0ba8",
-                content: "Eat Biscuits",
-                completed: 1614014224463,
-                date: 1614014107248,
-              },
-              {
-                id: "0fcc13fe-3ae0-4dd9-9d64-5f366aa0b08f",
-                content: "Release Alles Tab on Chrome",
-                completed: null,
-                date: 1614014034636,
-              },
-              {
-                id: "a14e4f7e-2fe6-46e0-83a8-a3705d2381ae",
-                content: "Add birthdays to Alles",
-                completed: 1614014297054,
-                date: 1614014284685,
-              },
-            ]}
+            items={data.todo}
           />
           <WeatherCard
             symbol={data.weather.symbol}
