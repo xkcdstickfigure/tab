@@ -4,8 +4,7 @@ export const ProfileCard = ({ nickname, email, ...props }) => (
   <Card
     className="flex flex-col justify-center text-white text-center"
     style={{
-      background:
-        "linear-gradient(80deg, rgba(207,95,227,1) 0%, rgba(155,89,255,1) 86%)",
+      background: "linear-gradient(80deg, #cf5fe3 0%, #9b59ff 86%)",
     }}
     {...props}
   >
