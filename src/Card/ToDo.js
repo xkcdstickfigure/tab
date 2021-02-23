@@ -1,10 +1,12 @@
 import { Card } from ".";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Circle, CheckCircle } from "react-feather";
 import moment from "moment";
+import axios from "axios";
 
-export const ToDoCard = ({ items, ...props }) => {
+export const ToDoCard = ({ api, token, items, ...props }) => {
   const [tasks, setTasks] = useState(items);
+  useEffect(() => setTasks(items), [items]);
 
   return (
     <Card {...props} className="p-3 space-y-3">
@@ -20,7 +22,7 @@ export const ToDoCard = ({ items, ...props }) => {
             (a, b) =>
               new Date(b.completed).getTime() - new Date(a.completed).getTime()
           ),
-      ].map(({ id, content, completed, date }, i) => (
+      ].map(({ id, content, completed, date }) => (
         <Row
           key={id}
           icon={completed ? CheckCircle : Circle}
@@ -30,6 +32,14 @@ export const ToDoCard = ({ items, ...props }) => {
             const t = JSON.parse(JSON.stringify(tasks));
             t[tasks.map((t) => t.id).indexOf(id)].completed = new Date();
             setTasks(t);
+
+            axios
+              .post(
+                `${api}/tasks/${id}`,
+                {},
+                { headers: { Authorization: token } }
+              )
+              .catch(() => {});
           }}
         >
           <p>{content}</p>

@@ -100,6 +100,8 @@ export const App = () => {
           <ToDoCard
             width={2}
             height={2}
+            api={data.api}
+            token={data.token}
             items={data.todo}
           />
           <WeatherCard
@@ -108,10 +110,10 @@ export const App = () => {
             location={data.location}
           />
           <StatusCard
+            width={2}
             api={data.api}
             token={data.token}
             status={data.status}
-            width={2}
           />
           {data.cards.map((card, i) => {
             const content = card.image && (
