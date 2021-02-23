@@ -14,6 +14,7 @@ import { ProfileCard } from "./Card/Profile";
 import { PeopleCard } from "./Card/People";
 import { StatusCard } from "./Card/Status";
 import { ToDoCard } from "./Card/ToDo";
+import { DateCard } from "./Card/Date";
 
 export const App = () => {
   const hp = 1;
@@ -115,6 +116,8 @@ export const App = () => {
             token={data.token}
             status={data.status}
           />
+          <DateCard />
+
           {data.cards.map((card, i) => {
             const content = card.image && (
               <img src={card.image} alt="" className="w-full h-full" />
