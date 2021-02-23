@@ -6,7 +6,7 @@ export const DateCard = (props) => {
     <Card
       className="flex flex-col justify-center text-white text-center relative"
       style={{
-        background: "linear-gradient(80deg, #1be693 10%, #0ed154 81%)",
+        background: "linear-gradient(80deg, #eb5f30 0%, #df6608 100%)",
       }}
       {...props}
     >
