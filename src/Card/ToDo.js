@@ -1,6 +1,6 @@
 import { Card } from ".";
 import { useState } from "react";
-import { Circle, CheckCircle } from "react-feather";
+import { Circle, CheckCircle, PlusCircle } from "react-feather";
 import moment from "moment";
 import axios from "axios";
 
@@ -8,47 +8,87 @@ export const ToDoCard = ({ api, token, items, ...props }) => {
   const [tasks, setTasks] = useState(items);
 
   return (
-    <Card {...props} className="p-3 space-y-3">
-      {[
-        ...tasks
-          .filter((t) => !t.completed)
-          .sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-          ),
-        ...tasks
-          .filter((t) => !!t.completed)
-          .sort(
-            (a, b) =>
-              new Date(b.completed).getTime() - new Date(a.completed).getTime()
-          ),
-      ].map(({ id, content, completed, date }) => (
-        <Row
-          key={id}
-          icon={completed ? CheckCircle : Circle}
-          lightIcon={!completed}
-          onClick={() => {
-            if (completed) return;
-            const t = JSON.parse(JSON.stringify(tasks));
-            t[tasks.map((t) => t.id).indexOf(id)].completed = new Date();
-            setTasks(t);
+    <Card {...props} className="p-5 space-y-3 flex flex-col">
+      <div className="space-y-3 overflow-auto flex-grow">
+        <form
+          className="flex-shrink-0"
+          onSubmit={(e) => {
+            e.preventDefault();
+            const content = e.target.task.value.trim();
+            if (!content) return;
 
             axios
               .post(
-                `${api}/tasks/${id}`,
-                {},
+                `${api}/tasks`,
+                { content },
                 { headers: { Authorization: token } }
               )
+              .then(({ data: id }) => {
+                const t = JSON.parse(JSON.stringify(tasks));
+                t.push({
+                  id,
+                  content,
+                  completed: null,
+                  date: new Date(),
+                });
+                setTasks(t);
+                e.target.reset();
+              })
               .catch(() => {});
           }}
         >
-          <p>{content}</p>
-          <p className="text-gray-600 text-xs">
-            {completed
-              ? `Completed ${moment(completed).fromNow()}`
-              : `Created ${moment(date).fromNow()}`}
-          </p>
-        </Row>
-      ))}
+          <Row icon={PlusCircle}>
+            <input
+              name="task"
+              placeholder="Bake a cake"
+              maxLength={100}
+              className="w-full outline-none"
+            />
+          </Row>
+        </form>
+
+        {[
+          ...tasks
+            .filter((t) => !t.completed)
+            .sort(
+              (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+            ),
+          ...tasks
+            .filter((t) => !!t.completed)
+            .sort(
+              (a, b) =>
+                new Date(b.completed).getTime() -
+                new Date(a.completed).getTime()
+            ),
+        ].map(({ id, content, completed, date }) => (
+          <Row
+            key={id}
+            icon={completed ? CheckCircle : Circle}
+            lightIcon={!completed}
+            onClick={() => {
+              if (completed) return;
+              const t = JSON.parse(JSON.stringify(tasks));
+              t[tasks.map((t) => t.id).indexOf(id)].completed = new Date();
+              setTasks(t);
+
+              axios
+                .post(
+                  `${api}/tasks/${id}`,
+                  {},
+                  { headers: { Authorization: token } }
+                )
+                .catch(() => {});
+            }}
+          >
+            <p>{content}</p>
+            <p className="text-gray-600 text-xs">
+              {completed
+                ? `Completed ${moment(completed).fromNow()}`
+                : `Created ${moment(date).fromNow()}`}
+            </p>
+          </Row>
+        ))}
+      </div>
     </Card>
   );
 };
