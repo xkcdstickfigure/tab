@@ -1,12 +1,11 @@
 import { Card } from ".";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Circle, CheckCircle } from "react-feather";
 import moment from "moment";
 import axios from "axios";
 
 export const ToDoCard = ({ api, token, items, ...props }) => {
   const [tasks, setTasks] = useState(items);
-  useEffect(() => setTasks(items), [items]);
 
   return (
     <Card {...props} className="p-3 space-y-3">
