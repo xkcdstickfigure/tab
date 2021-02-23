@@ -40,7 +40,7 @@ export const ToDoCard = ({ api, token, items, ...props }) => {
           <Row icon={PlusCircle}>
             <input
               name="task"
-              placeholder="Bake a cake"
+              placeholder="Add a task..."
               maxLength={100}
               className="w-full outline-none"
             />
