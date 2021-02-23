@@ -2,7 +2,7 @@ import { Card } from ".";
 import { Star } from "react-feather";
 
 export const PeopleCard = ({ people, ...props }) => (
-  <Card {...props} className="p-3">
+  <Card {...props} className="p-5">
     <div className="space-y-3 overflow-y-auto overflow-x-hidden h-full">
       {people.map((user) => (
         <div key={user.id} className="flex space-x-3">
