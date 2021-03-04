@@ -84,7 +84,7 @@ export const ToDoCard = ({ api, token, items, ...props }) => {
             <p className="text-gray-600 text-xs">
               {completed
                 ? `Completed ${moment(completed).fromNow()}`
-                : `Created ${moment(date).fromNow()}`}
+                : `Added ${moment(date).fromNow()}`}
             </p>
           </Row>
         ))}
